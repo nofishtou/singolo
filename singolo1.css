@@ -1,3 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1020px;
+}
+
+header .container {
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: row;
+  height: 95px;
+  color: #ffffff;
+  background-color: #2d303a;
+  font-family: "Lato-Bold";
+  border-bottom: 5px solid #323746;
+}
+
+.header-logo h1{
+  font-size: 25px;
+  line-height: 28px;
+  letter-spacing: -0.03em;
+}
+
+.header-logo-symbol {
+  color: #f06c64;
+}
+
+.header-menu{
+  font-size: 0px;
+}
+
+nav{
+  margin-left: 450px;
+}
+
+.header-menu .header-menu-item{
+  display: inline-block;
+  margin-right: 30px; 
+  font-size: 12px;
+  line-height: 38px;
+  vertical-align: middle;
+  letter-spacing: -0.05em;
+}
+
+.header-menu .header-menu-item:hover {
+  color: #f06c64;
+}
+
+.header-menu-item:not(:first-child)::before {
+  content: ".";
+  position: relative;
+  bottom: 3px;
+  left: -13px;
+  font-weight: 400;
+  font-size: 19px;
+  font-family: "Lato-Regular", sans-serif;
+  color: #494e62;
+}
+
+.header-menu li:last-child {
+  margin-right: 0px;
+}
+
 @font-face {
   font-family: "Lato-Black";  
   src: url("./assets/font/Lato-Bold.ttf") format("truetype"); 
