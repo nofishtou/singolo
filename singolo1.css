@@ -154,9 +154,8 @@ nav {
   margin-bottom: 15px;
   font-family: "Lato-Black", sans-serif;
   font-size: 30px;
-  line-height: 38px;
+  line-height: 36px;
   color: #666d89;
-  letter-spacing: -0.035em;
 }
 
 .services-text p {
@@ -209,22 +208,21 @@ nav {
   font-size: 18px;
   line-height: 16px;
   color: #666d89;
-  font-family: "Lato-Black";
-  letter-spacing: 0.014em;
+  font-family: "Lato-Black", sans-serif;
 }
 
 .services-preferences-text p {
   font-size: 12px;
   line-height: 22px;
   color: #767e9e;
-  font-family: "Lato-Regular";
+  font-family: "Lato-Regular", sans-serif;
   text-align: justify;
 }
 
 
 @font-face {
   font-family: "Lato-Black";  
-  src: url("./assets/font/Lato-Black.ttf.ttf") format("truetype"); 
+  src: url("./assets/font/Lato-Black.ttf") format("truetype"); 
   font-style: normal; 
   font-weight: 900;
 }
