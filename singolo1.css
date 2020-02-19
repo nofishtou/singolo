@@ -147,15 +147,16 @@ nav {
 }
 
 .services-text{
-  margin-bottom: 45px;
+  margin-bottom: 43px;
 }
 
 .services-text h2 {
   margin-bottom: 15px;
   font-family: "Lato-Black", sans-serif;
   font-size: 30px;
+  line-height: 38px;
   color: #666d89;
-  letter-spacing: 0.007em;
+  letter-spacing: -0.035em;
 }
 
 .services-text p {
@@ -163,6 +164,7 @@ nav {
   line-height: 32px;
   color: #767e9e;
   font-family: "Lato-Light", sans-serif;
+  letter-spacing: -0.0018em;
 }
 
 .services-preferences {
@@ -198,10 +200,6 @@ nav {
   vertical-align: top;
 }
 
-.services-preferences-img img {
-
-}
-
 .services-preferences-text {
   width: 220px;
 }
@@ -212,7 +210,7 @@ nav {
   line-height: 16px;
   color: #666d89;
   font-family: "Lato-Black";
-  font-weight: 900;
+  letter-spacing: 0.014em;
 }
 
 .services-preferences-text p {
@@ -220,12 +218,13 @@ nav {
   line-height: 22px;
   color: #767e9e;
   font-family: "Lato-Regular";
+  text-align: justify;
 }
 
 
 @font-face {
   font-family: "Lato-Black";  
-  src: url("./assets/font/Lato-Bold.ttf") format("truetype"); 
+  src: url("./assets/font/Lato-Black.ttf.ttf") format("truetype"); 
   font-style: normal; 
   font-weight: 900;
 }
@@ -237,13 +236,13 @@ nav {
 }
 @font-face {
   font-family: "Lato-Regular";  
-  src: url("./assets/font/Lato-Bold.ttf") format("truetype"); 
+  src: url("./assets/font/Lato-Regular.ttf") format("truetype"); 
   font-style: normal; 
   font-weight: 400;
 }
 @font-face {
-  font-family: "Lato-Bold";  
-  src: url("./assets/font/Lato-Bold.ttf") format("truetype"); 
+  font-family: "Lato-Light";  
+  src: url("./assets/font/Lato-Light.ttf") format("truetype"); 
   font-style: normal; 
   font-weight: 300;
 }
