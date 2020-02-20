@@ -220,6 +220,13 @@ nav {
   text-align: justify;
 }
 
+/* styles for ie */
+
+@supports (-ms-ime-align:auto) {
+  nav {
+    margin-left: 450px
+  }
+} 
 
 @font-face {
   font-family: "Lato-Black";  
