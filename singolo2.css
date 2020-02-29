@@ -36,6 +36,8 @@
   line-height: 20px;
   color: #666d89;
   text-align: justify;
+  letter-spacing: -0.006em;
+  word-spacing: -0.04em;
 }
 
 .portfolio-nav {
@@ -117,6 +119,8 @@
   color: #767e9e;
   font-family: "Lato-Light", "Arial", sans-serif;
   text-align: justify;
+  letter-spacing: -0.006em;
+  word-spacing: -0.04em;
 }
 
 .about-profile-grid {
@@ -127,11 +131,12 @@
 }
 
 .about-profile-item h3 {
-  padding-top: 15px;
+  padding-top: 19px;
   font-family: "Lato-Black", "Arial", sans-serif;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 15px;
   color: #666d89;
+  letter-spacing: -0.006em;
 }
 
 .about-profile-item p {
@@ -141,10 +146,11 @@
   line-height: 22px;
   color: #767e9e;
   text-align: justify;
+  letter-spacing: -0.006em;
 }
 
 .about-profile-item-social{
-  padding-top: 22px;
+  padding-top: 24px;
 }
 
 .about-profile-item-social a +  a {
