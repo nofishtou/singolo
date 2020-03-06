@@ -328,7 +328,7 @@ nav {
 }
 
 .about .container {
-  padding: 63px 40px 68px;
+  padding: 63px 40px 67px;
 }
 
 .about-text {
@@ -402,7 +402,7 @@ nav {
 }
 
 .quote .container {
-  padding: 69px 40px 9px;
+  padding: 69px 40px 10px;
 }
 
 .quote-container {
@@ -573,7 +573,7 @@ footer {
 }
 
 footer .container {
-  padding: 20px 40px;
+  padding: 19px 40px;
   display: flex;
   align-items: center;
 }
