@@ -46,13 +46,13 @@ nav {
 .header-menu .header-menu-item {
   display: inline-block;
   margin-right: 28px; 
+}
+
+.header-menu-item a { 
   font-size: 12px;
   line-height: 36px;
   vertical-align: middle;
   letter-spacing: -0.039em;
-}
-
-.header-menu-item a {
   text-decoration: none;
   color: #ffffff;
 }
@@ -66,14 +66,14 @@ nav {
 .header-menu-item:not(:first-child)::before {
   content: ".";
   position: relative;
-  bottom: 3px;
-  left: -13px;
-  font-size: 19px;
+  bottom: -2px;
+  left: -14px;
+  font-size: 17px;
   font-family: "Lato-Regular", "Arial", sans-serif;
   color: #494e62;
 }
 
-.header-menu li:last-child {
+.header-menu .header-menu-item:last-child{
   margin-right: 0px;
 }
 
@@ -106,7 +106,6 @@ nav {
   padding: 8px;
   border: solid #ca4549;
   border-width: 0 4px 4px 0;
-  opacity: 0.7;
 }
 
 .arrow-left {
@@ -157,7 +156,7 @@ nav {
 }
 
 .services-block .container {
-  padding: 60px 40px 61px;
+  padding: 60px 40px 58px;
 }
 
 .services-text{
@@ -215,6 +214,8 @@ nav {
 
 .services-preferences-text {
   width: 220px;
+  height: 92px;
+  overflow: hidden;
 }
 
 .services-preferences-text h3 {
@@ -241,7 +242,7 @@ nav {
 }
 
 .portfolio .container {
-  padding: 65px 30px;
+  padding: 65px 30px 66px;
 }
 
 .portfolio-text{
@@ -359,6 +360,11 @@ nav {
   font-size: 0px;
 }
 
+.about-profile-item {
+  width: 300px;
+  overflow: hidden;
+}
+
 .about-profile-item h3 {
   padding-top: 19px;
   font-family: "Lato-Black", "Arial", sans-serif;
@@ -366,6 +372,7 @@ nav {
   line-height: 15px;
   color: #666d89;
   letter-spacing: -0.006em;
+  white-space: nowrap;
 }
 
 .about-profile-item p {
@@ -418,6 +425,7 @@ nav {
   font-size: 18px;
   line-height: 30px;
   word-spacing: -0.1em;
+  text-align: justify;
 }
 
 .quote-form {
