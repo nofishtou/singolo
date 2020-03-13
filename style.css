@@ -57,12 +57,11 @@ nav {
   color: #ffffff;
 }
 
-.header-menu-link-active a{
+.header-menu-link__selected a{
   color: #f06c64;
 }
 
-.header-menu .header-menu-item:hover  a,
-.header-menu .header-menu-item:hover {
+.header-menu .header-menu-item  a:hover {
   color: #f06c64;
   cursor: pointer;
 }
@@ -152,10 +151,38 @@ nav {
   left: 112px;
 }
 
+.phone-background-vertical{
+  display: none;
+  position: absolute;
+  top: 115px;
+  left: 124px;
+  width: 192px;
+  height: 338px;
+  background-color: #000000;
+}
+
+.phone-background-vertical-active{
+  display: block;
+}
+
 .phone-horizontal {
   position: absolute;
   right: 111px;
   bottom: 171px;
+}
+
+.phone-background-horizontal{
+  display: none;
+  position: absolute;
+  right: 200px;
+  bottom: 207px;
+  width: 338px;
+  height: 192px;
+  background-color: #000000;
+}
+
+.phone-background-horizontal-active{
+  display: block;
 }
 
 /* services */
@@ -328,6 +355,11 @@ nav {
 .portfolio-grid-item {
   height: 187px;
   background-color: #464b5e;
+}
+
+.portfolio-grid-item__selected {
+  box-sizing: border-box;
+  border: 5px solid red;
 }
 
 /* about block */
