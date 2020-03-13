@@ -57,6 +57,10 @@ nav {
   color: #ffffff;
 }
 
+.header-menu-link-active a{
+  color: #f06c64;
+}
+
 .header-menu .header-menu-item:hover  a,
 .header-menu .header-menu-item:hover {
   color: #f06c64;
@@ -79,19 +83,25 @@ nav {
 
 /* slider */
 
-.slider-block {
+.slider {
   background-color: #f06c64;
   border-bottom: 15px solid #ea676b;
 }
 
-.slider-block .container {
+ .slider-container {
   position: relative;
   display: flex;
   height: 585px;
 }
 
 .slide {
+  display: none;
+  padding-top: 50px;
   width: 80%;
+}
+
+.slide-active {
+  display: block;
 }
 
 .arrow-cont {
