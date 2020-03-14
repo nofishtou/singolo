@@ -357,9 +357,8 @@ nav {
   background-color: #464b5e;
 }
 
-.portfolio-grid-item__selected {
-  box-sizing: border-box;
-  border: 5px solid red;
+.img__selected {
+  border: 5px solid #F06C64;
 }
 
 /* about block */

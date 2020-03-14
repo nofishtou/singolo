@@ -1,15 +1,15 @@
-console.log('hello world')
 const headerMenu = document.querySelector('.header-menu');
 const headerMenuItems = headerMenu.querySelectorAll('.header-menu-item')
 
 const selectMenuItem = (event) => {
   console.log(event.target)
-  headerMenuItems.forEach((el) => {
+
+  if(event.target.tagName === 'A') {
+    headerMenuItems.forEach((el) => {
       if(el.classList.contains('header-menu-link__selected')){
         el.classList.remove('header-menu-link__selected')
       }
-  })
-  if(event.target.tagName === 'A') {
+    })
     event.target.parentElement.classList.add('header-menu-link__selected')
   } 
 }
@@ -24,7 +24,6 @@ const arrowLeft = slider.querySelector('.arrow-left');
 const arrowRight = slider.querySelector('.arrow-right');
 
 const slideChange = (event) => {
-  console.log(event.target)
   for(let i = 0; i < slides.length; i++) {
     if(slides[i].classList.contains('slide-active')){
       if(event.target.classList.contains('arrow-left')){
@@ -90,12 +89,13 @@ const filterItems = (event) => {
   const tempArr = []
 
   //change navbar
-  portfolioNavItems.forEach((el) => {
-    if(el.classList.contains('portfolio-nav-element__selected')){
-      el.classList.remove('portfolio-nav-element__selected')
-    }
-  })
+
   if(event.target.tagName === 'SPAN') {
+    portfolioNavItems.forEach((el) => {
+      if(el.classList.contains('portfolio-nav-element__selected')){
+        el.classList.remove('portfolio-nav-element__selected')
+      }
+    })
     event.target.classList.add('portfolio-nav-element__selected')
   }
 
@@ -129,7 +129,57 @@ const filterItems = (event) => {
   tempArr.forEach((el) => {
     portfolioGrid.append(el)
   })
-  console.log(tempArr)
 }
 
 portfolioNav.addEventListener('click',filterItems)
+
+// select image
+const portfolio = document.querySelector('.portfolio')
+const imageItems = portfolio.querySelectorAll('img')
+
+const imageSelect = (event) => {
+  //unselect image
+  if(event.target.tagName === 'IMG' && event.target.classList.contains('img__selected')){
+    event.target.classList.toggle('img__selected')
+    return
+  }
+
+  if(event.target.tagName === 'IMG'){
+    imageItems.forEach((el) => {
+      if(el.classList.contains('img__selected')){
+        el.classList.toggle('img__selected')
+      }
+    })
+    event.target.classList.toggle('img__selected')
+  } 
+}
+
+portfolioGrid.addEventListener('click', imageSelect)
+
+// form submit 
+
+const inputSubject = document.querySelector('#subjectInput')
+const messageTextarea = document.querySelector('#messageTextarea')
+const btnSubmit = document.querySelector('.quote-form form')
+
+const submitForm = (event) => {
+  event.preventDefault()
+  let subject = inputSubject.value;
+  let message = messageTextarea.value;
+
+  if(subject === '') {
+    subject = 'Без темы'
+  } else {
+    subject = `Тема: ${subject}`
+  }
+
+  if(message === '') {
+    message = 'Без описания'
+  } else {
+    message = `Описание: ${message}`
+  }
+
+  alert(`Письмо отправлено!\r${subject}\r${message}`)
+}
+
+btnSubmit.addEventListener('submit', submitForm, true)
