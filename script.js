@@ -2,8 +2,6 @@ const headerMenu = document.querySelector('.header-menu');
 const headerMenuItems = headerMenu.querySelectorAll('.header-menu-item')
 
 const selectMenuItem = (event) => {
-  console.log(event.target)
-
   if(event.target.tagName === 'A') {
     headerMenuItems.forEach((el) => {
       if(el.classList.contains('header-menu-link__selected')){
@@ -28,12 +26,27 @@ const slideChange = (event) => {
     if(slides[i].classList.contains('slide-active')){
       if(event.target.classList.contains('arrow-left')){
         slides[i].classList.remove('slide-active')
-        console.log(i)
         if( i === 0) {
           slides[slides.length - 1].classList.add('slide-active')
+          //change bg
+          if(slides[slides.length - 1].classList.contains('bg-red')){
+            slider.style.background = "#f06c64"
+            slider.style.borderBottom = "15px solid #ea676b"
+          } else {
+            slider.style.background = "#648BF0"
+            slider.style.borderBottom = "15px solid #648BF0"
+          }
           break
         } else {
           slides[i - 1].classList.add('slide-active')
+          //change bg
+          if(slides[i - 1].classList.contains('bg-red')){
+            slider.style.background = "#f06c64"
+            slider.style.borderBottom = "15px solid #ea676b"
+          } else {
+            slider.style.background = "#648BF0"
+            slider.style.borderBottom = "15px solid #648BF0"
+          }
           break
         }
       }
@@ -41,9 +54,25 @@ const slideChange = (event) => {
         slides[i].classList.remove('slide-active')
         if( i === slides.length -1) {
           slides[0].classList.add('slide-active')
+          //change bg
+          if(slides[0].classList.contains('bg-red')){
+            slider.style.background = "#f06c64"
+            slider.style.borderBottom = "15px solid #ea676b"
+          } else {
+            slider.style.background = "#648BF0"
+            slider.style.borderBottom = "15px solid #648BF0"
+          }
           break
         } else {
           slides[i + 1].classList.add('slide-active')
+          //change bg
+          if(slides[i + 1].classList.contains('bg-red')){
+            slider.style.background = "#f06c64"
+            slider.style.borderBottom = "15px solid #ea676b"
+          } else {
+            slider.style.background = "#648BF0"
+            slider.style.borderBottom = "15px solid #648BF0"
+          }
           break
         }
       }
@@ -62,7 +91,6 @@ const iphoneVerticalBackground = document.querySelector('.phone-background-verti
 const iphoneHorizontalBackground = document.querySelector('.phone-background-horizontal')
 
 const offPhone = (event) => {
-  console.log(event.layerX, event.layerY )
   if(event.target.classList.contains('phone-vertical')){
     if(event.layerX < 116 && event.layerX > 94 && event.layerY < 436 && event.layerY > 422){
       iphoneVerticalBackground.classList.toggle('phone-background-vertical-active')
@@ -85,11 +113,19 @@ const portfolioNavItems = document.querySelectorAll('.portfolio-nav-element');
 const portfolioItems = document.querySelectorAll('.portfolio-grid-item');
 const portfolioGrid = document.querySelector('.portfolio-grid');
 
+const random = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+      
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 const filterItems = (event) => {
-  const tempArr = []
+  let tempArr = []
 
   //change navbar
-
   if(event.target.tagName === 'SPAN') {
     portfolioNavItems.forEach((el) => {
       if(el.classList.contains('portfolio-nav-element__selected')){
@@ -97,38 +133,44 @@ const filterItems = (event) => {
       }
     })
     event.target.classList.add('portfolio-nav-element__selected')
-  }
-
-  // filter items
-  if(event.target.textContent === 'Artwork'){
-    for(let i = 0; i < portfolioItems.length; i++){
-      if(portfolioItems[i].classList.contains('artwork')){
-        tempArr.push(portfolioItems[i])
+  
+    // filter items
+    if(event.target.textContent === 'Artwork'){
+      for(let i = 0; i < portfolioItems.length; i++){
+        if(portfolioItems[i].classList.contains('artwork')){
+          tempArr.push(portfolioItems[i])
+        }
+      }
+    } 
+    
+    if (event.target.textContent === 'Graphic Design') {
+      for(let i = 0; i < portfolioItems.length; i++){
+        if(portfolioItems[i].classList.contains('graphic-design')){
+          tempArr.push(portfolioItems[i])
+        }
       }
     }
-  } else if (event.target.textContent === 'Graphic Design') {
-    for(let i = 0; i < portfolioItems.length; i++){
-      if(portfolioItems[i].classList.contains('graphic-design')){
+    
+    if (event.target.textContent === 'Web Design') {
+      for(let i = 0; i < portfolioItems.length; i++){
+        if(portfolioItems[i].classList.contains('web-design')){
+          tempArr.push(portfolioItems[i])
+        }
+      }
+    }
+
+    if(event.target.textContent === 'All') {
+      for(let i = 0; i < portfolioItems.length; i++){
         tempArr.push(portfolioItems[i])
       }
     }
     
-  } else if (event.target.textContent === 'Web Design') {
-    for(let i = 0; i < portfolioItems.length; i++){
-      if(portfolioItems[i].classList.contains('web-design')){
-        tempArr.push(portfolioItems[i])
-      }
-    }
-  } else {
-    for(let i = 0; i < portfolioItems.length; i++){
-      tempArr.push(portfolioItems[i])
-    }
+    portfolioGrid.innerHTML = ""
+    tempArr = random(tempArr)
+    tempArr.forEach((el) => {
+      return portfolioGrid.append(el)
+    })
   }
-
-  portfolioGrid.innerHTML = ""
-  tempArr.forEach((el) => {
-    portfolioGrid.append(el)
-  })
 }
 
 portfolioNav.addEventListener('click',filterItems)

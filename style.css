@@ -93,14 +93,22 @@ nav {
   height: 585px;
 }
 
+.sliders{
+  width: 100%;
+  text-align: center;
+}
+
 .slide {
   display: none;
-  padding-top: 50px;
-  width: 80%;
+  padding-top: 40px;
 }
 
 .slide-active {
   display: block;
+}
+
+.small-phones {
+  margin-bottom: 90px;
 }
 
 .arrow-cont {
@@ -113,8 +121,9 @@ nav {
 .arrow {
   display: inline-block;
   padding: 8px;
-  border: solid #ca4549;
+  border: solid #E94348;
   border-width: 0 4px 4px 0;
+  opacity: 0.5;
 }
 
 .arrow-left {
@@ -143,6 +152,7 @@ nav {
   border: solid #ffffff;
   border-width: 0 5px 5px 0;
   cursor: pointer;
+  opacity: 0.5;
 }
 
 .phone-vertical {
