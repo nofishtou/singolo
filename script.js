@@ -1,5 +1,6 @@
 const headerMenu = document.querySelector('.header-menu');
 const headerMenuItems = headerMenu.querySelectorAll('.header-menu-item')
+const sections = document.querySelectorAll('main > section')
 
 const selectMenuItem = (event) => {
   if(event.target.tagName === 'A') {
@@ -12,99 +13,114 @@ const selectMenuItem = (event) => {
   } 
 }
 
+const onScroll = () => {
+  const curPos = window.scrollY;
+
+  sections.forEach((section) => {
+    if(section.offsetTop - 95 <= curPos && (section.offsetTop + section.offsetHeight - 95) > curPos) {
+      headerMenuItems.forEach((headerMenuItem) => {
+        headerMenuItem.classList.remove('header-menu-link__selected')
+        if(section.getAttribute('id') === headerMenuItem.childNodes[0].getAttribute('href').substring(1)){
+          headerMenuItem.classList.add('header-menu-link__selected')
+        }
+      })
+    }
+  })
+}
+
+document.addEventListener('scroll', onScroll)
 headerMenu.addEventListener('click', selectMenuItem)
 
 //slider 
 
-const slider = document.querySelector('#slider')
-const slides = slider.querySelectorAll('.slide');
+const slider = document.querySelector('.home')
 const arrowLeft = slider.querySelector('.arrow-left');
 const arrowRight = slider.querySelector('.arrow-right');
+const slides = document.querySelectorAll('.sliders .slide');
+let currentSlide = 0;
+let isEnabled = true;
 
-const slideChange = (event) => {
-  for(let i = 0; i < slides.length; i++) {
-    if(slides[i].classList.contains('slide-active')){
-      if(event.target.classList.contains('arrow-left')){
-        slides[i].classList.remove('slide-active')
-        if( i === 0) {
-          slides[slides.length - 1].classList.add('slide-active')
-          //change bg
-          if(slides[slides.length - 1].classList.contains('bg-red')){
-            slider.style.background = "#f06c64"
-            slider.style.borderBottom = "15px solid #ea676b"
-          } else {
-            slider.style.background = "#648BF0"
-            slider.style.borderBottom = "15px solid #648BF0"
-          }
-          break
-        } else {
-          slides[i - 1].classList.add('slide-active')
-          //change bg
-          if(slides[i - 1].classList.contains('bg-red')){
-            slider.style.background = "#f06c64"
-            slider.style.borderBottom = "15px solid #ea676b"
-          } else {
-            slider.style.background = "#648BF0"
-            slider.style.borderBottom = "15px solid #648BF0"
-          }
-          break
-        }
-      }
-      if(event.target.classList.contains('arrow-right')){
-        slides[i].classList.remove('slide-active')
-        if( i === slides.length -1) {
-          slides[0].classList.add('slide-active')
-          //change bg
-          if(slides[0].classList.contains('bg-red')){
-            slider.style.background = "#f06c64"
-            slider.style.borderBottom = "15px solid #ea676b"
-          } else {
-            slider.style.background = "#648BF0"
-            slider.style.borderBottom = "15px solid #648BF0"
-          }
-          break
-        } else {
-          slides[i + 1].classList.add('slide-active')
-          //change bg
-          if(slides[i + 1].classList.contains('bg-red')){
-            slider.style.background = "#f06c64"
-            slider.style.borderBottom = "15px solid #ea676b"
-          } else {
-            slider.style.background = "#648BF0"
-            slider.style.borderBottom = "15px solid #648BF0"
-          }
-          break
-        }
-      }
-    }
-  }
+const changeCurrentSlide = (n) => {
+	currentSlide = (n + slides.length) % slides.length;
 }
 
-arrowLeft.addEventListener('click', slideChange);
-arrowRight.addEventListener('click', slideChange);
+const hideSlide = (direction) => {
+	isEnabled = false;
+	slides[currentSlide].classList.add(direction);
+	slides[currentSlide].addEventListener('animationend', function() {
+		this.classList.remove('slide-active', direction);
+	});
+}
+
+const showSlide = (direction) => {
+  slides[currentSlide].classList.add('slide-next', direction);
+  if(slides[currentSlide].classList.contains('bg-blue')) {
+    home.classList.remove('home-bg-red')
+    home.classList.add('home-bg-blue')
+  } else {
+    home.classList.remove('home-bg-blue')
+    home.classList.add('home-bg-red')
+  }
+	slides[currentSlide].addEventListener('animationend', function() {
+		this.classList.remove('slide-next', direction);
+		this.classList.add('slide-active');
+		isEnabled = true;
+	});
+}
+
+const nextSlide  = (n) => {
+	hideSlide('to-left');
+	changeCurrentSlide(n + 1);
+	showSlide('from-right');
+}
+
+const previousSlide = (n) => {
+	hideSlide('to-right');
+	changeCurrentSlide(n - 1);
+	showSlide('from-left');
+}
+
+arrowLeft.addEventListener('click', () => {
+	if (isEnabled) {
+		previousSlide(currentSlide);
+	}
+});
+arrowRight.addEventListener('click', () => {
+	if (isEnabled) {
+		nextSlide(currentSlide);
+	}
+});
 
 // add btn for phones
 
-const iphoneVertical = document.querySelector('.phone-vertical')
-const iphoneHorizontal = document.querySelector('.phone-horizontal')
-const iphoneVerticalBackground = document.querySelector('.phone-background-vertical')
-const iphoneHorizontalBackground = document.querySelector('.phone-background-horizontal')
+const phoneVertical = document.querySelector('.phone-vertical')
+const phoneHorizontal = document.querySelector('.phone-horizontal')
+const phoneCentral = document.querySelector('.phone-central')
+const phoneVerticalBackground = document.querySelector('.phone-background-vertical')
+const phoneHorizontalBackground = document.querySelector('.phone-background-horizontal')
+const phoneCentralBackground = document.querySelector('.phone-background-central')
 
 const offPhone = (event) => {
   if(event.target.classList.contains('phone-vertical')){
-    if(event.layerX < 116 && event.layerX > 94 && event.layerY < 436 && event.layerY > 422){
-      iphoneVerticalBackground.classList.toggle('phone-background-vertical-active')
+    if(event.layerX > 98  && event.layerX < 116 && event.layerY > 422 && event.layerY < 436){
+      phoneVerticalBackground.classList.toggle('phone-background-vertical-active')
     }
   }
   if(event.target.classList.contains('phone-horizontal')){
-    if(event.layerX < 37 && event.layerX > 22 && event.layerY < 114 && event.layerY > 100){
-      iphoneHorizontalBackground.classList.toggle('phone-background-horizontal-active')
+    if(event.layerX > 20 && event.layerX < 38 && event.layerY > 98 && event.layerY < 117){
+      phoneHorizontalBackground.classList.toggle('phone-background-horizontal-active')
+    }
+  }
+  if(event.target.classList.contains('phone-central')){
+    if(event.layerX > 488 && event.layerX < 506 && event.layerY > 484 && event.layerY < 504){
+      phoneCentralBackground.classList.toggle('phone-background-central-active')
     }
   }
 }
 
-iphoneVertical.addEventListener('click', offPhone)
-iphoneHorizontal.addEventListener('click', offPhone)
+phoneVertical.addEventListener('click', offPhone)
+phoneHorizontal.addEventListener('click', offPhone)
+phoneCentral.addEventListener('click', offPhone)
 
 // filter 
 
@@ -200,28 +216,66 @@ portfolioGrid.addEventListener('click', imageSelect)
 
 // form submit 
 
+const nameSubject = document.querySelector('#nameInput')
+const emailSubject = document.querySelector('#emailInput')
 const inputSubject = document.querySelector('#subjectInput')
 const messageTextarea = document.querySelector('#messageTextarea')
 const btnSubmit = document.querySelector('.quote-form form')
+const messageBlock = document.querySelector('#message-block')
+const messageText = document.querySelector('.message-text')
+const btnMessage = document.querySelector('#message-btn')
 
 const submitForm = (event) => {
   event.preventDefault()
   let subject = inputSubject.value;
   let message = messageTextarea.value;
+  let newMessage
+  let newSubject
+
+  //validation 
+  console.log(message.length)
+  if(message.length > 500) {
+    messageText.innerHTML = '<h3>Ошибка!</h3><p>Слишком много текста в описании.</p>'
+    messageBlock.classList.toggle('message-block__hidden')
+    nameSubject.value = ''
+    emailSubject.value = ''
+    inputSubject.value = ''
+    messageTextarea.value = '' 
+    return
+  }
 
   if(subject === '') {
-    subject = 'Без темы'
+    newSubject = 'Без темы'
   } else {
-    subject = `Тема: ${subject}`
+    newSubject = `Тема: ${subject}`
+    if(subject.length > 25){
+      newSubject = subject.slice(0, 20)
+      newSubject += '...'
+    }
   }
 
   if(message === '') {
-    message = 'Без описания'
+    newMessage = 'Без описания'
   } else {
-    message = `Описание: ${message}`
+    newMessage = `Описание: ${message}`
+    if(message.length > 75){
+      newMessage = message.slice(0, 75)
+      newMessage += '...'
+    }
   }
 
-  alert(`Письмо отправлено!\r${subject}\r${message}`)
+  messageText.innerHTML = `<h3>Письмо отправлено!</h3><p>${newSubject}</p><p>${newMessage}</p>`
+
+  messageBlock.classList.toggle('message-block__hidden')
+  nameSubject.value = ''
+  emailSubject.value = ''
+  inputSubject.value = ''
+  messageTextarea.value = '' 
+}
+
+const closeModal = () => {
+  messageBlock.classList.toggle('message-block__hidden')
 }
 
 btnSubmit.addEventListener('submit', submitForm, true)
+btnMessage.addEventListener('click', closeModal)

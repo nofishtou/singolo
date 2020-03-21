@@ -14,7 +14,7 @@
       </div>
       <nav>
         <ul class="header-menu"> 
-          <li class="header-menu-item header-menu-link__selected"><a href="#">HOME</a></li>
+          <li class="header-menu-item header-menu-link__selected"><a href="#home">HOME</a></li>
           <li class="header-menu-item"><a href="#services">SERVICES</a></li>
           <li class="header-menu-item"><a href="#portfolio">PORTFOLIO</a></li>
           <li class="header-menu-item"><a href="#about">ABOUT</a></li>
@@ -24,9 +24,9 @@
     </div>
   </header>
   <main>
-    <section id="slider" class="slider">
-      <div class="container">
-        <div class="slider-container">
+    <section id="home" class="home home-bg-red">
+      <div class="container" >
+        <div class= "slider">
           <div class="arrow-cont"><i class="arrow arrow-left"></i></div>
           <div class="sliders">
             <div class="slide slide-active bg-red">
@@ -35,13 +35,14 @@
               <div class="phone-background-vertical"></div>
               <div class="phone-background-horizontal"></div>
             </div>
-            <div class="slide bg-blue">
+            <div class="slide bg-blue slide-padding-top">
               <img class="small-phones" src="assets/img/iPhoneSmallLeft.png" alt="small iPhone">
-              <img src="assets/img/iPhoneCentral.png" alt="iPhone">
+              <img class="phone-central" src="assets/img/iPhoneCentral.png" alt="iPhone">
               <img class="small-phones" src="assets/img/iPhoneSmallRight.png" alt="small iPhone">
+              <div class="phone-background-central"></div>
             </div>
           </div>
-          <div class="arrow-cont"><i class="arrow arrow-right"></i></div>
+          <div class="arrow-cont arrow-cont-right"><i class="arrow arrow-right"></i></div>
         </div>
       </div>
     </section>
@@ -189,12 +190,15 @@
         <div class="quote-container">
           <div class="quote-form">
             <form action="#">
-              <input type="text" name="name" id="nameInput" class="quote-form-input" placeholder="Name(Required)" required>
-              <input type="email" name="email" id="emailInput" class="quote-form-input" placeholder="Email(Required)" required>
-              <input type="text" name="subject" id="subjectInput" class="quote-form-input" placeholder="Subject">
+              <input type="text" name="name" id="nameInput" class="quote-form-input" placeholder="Name(Required)" autocomplete="off" required>
+              <input type="email" name="email" id="emailInput" class="quote-form-input" placeholder="Email(Required)" autocomplete="off" required>
+              <input type="text" name="subject" id="subjectInput" class="quote-form-input" placeholder="Subject" autocomplete="off">
               <textarea name="message" id="messageTextarea" class="quote-form-textarea" cols="30" rows="8" placeholder="Describe your project in detail..."></textarea>    
               <input type="submit" class="quote-form-input quote-form-btn" value="Send">       
             </form>
+            <div id="message-block" class="message-block__hidden">
+              <div id="message"><div class="message-text"></div><button id="message-btn" class="quote-form-input quote-form-btn">Okey</button></div>
+            </div>
           </div>
           <div class="quote-information">
             <h3>Contact Information</h3>
