@@ -9,7 +9,6 @@ const adaptiveMenu = () => {
   const headerLogo = document.querySelector('.header-logo')
   const shadowBackground = document.querySelector('.shadow-background')
   if(!headerMenu.classList.contains('active')){
-    console.log('true')
     headerMenu.classList.toggle('header-menu-active')
     headerMenuBtn.classList.toggle('btn-rotate')
     headerContainer.classList.toggle('change-flex-row')
