@@ -1,6 +1,29 @@
 const headerMenu = document.querySelector('.header-menu');
 const headerMenuItems = headerMenu.querySelectorAll('.header-menu-item')
 const sections = document.querySelectorAll('main > section')
+const headerMenuBtn = document.querySelector('.header-menu-icon-btn')
+
+
+const adaptiveMenu = () => {
+  const headerContainer = document.querySelector('header .container')
+  const headerLogo = document.querySelector('.header-logo')
+  const shadowBackground = document.querySelector('.shadow-background')
+  if(!headerMenu.classList.contains('active')){
+    console.log('true')
+    headerMenu.classList.toggle('header-menu-active')
+    headerMenuBtn.classList.toggle('btn-rotate')
+    headerContainer.classList.toggle('change-flex-row')
+    headerLogo.classList.toggle('header-logo-position')
+    shadowBackground.classList.toggle('shadow-background-active')
+  } else {
+    headerMenu.classList.toggle('header-menu-active')
+    headerMenuBtn.classList.toggle('btn-rotate')
+    headerContainer.classList.toggle('change-flex-row')
+    shadowBackground.classList.toggle('shadow-background-active')
+  }
+}
+
+headerMenuBtn.addEventListener('click', adaptiveMenu)
 
 const selectMenuItem = (event) => {
   if(event.target.tagName === 'A') {
