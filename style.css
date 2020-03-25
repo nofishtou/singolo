@@ -69,11 +69,6 @@ header .container {
   color: #f06c64;
 }
 
-.header-menu .header-menu-item  a:hover {
-  color: #f06c64;
-  cursor: pointer;
-}
-
 .header-menu-item:not(:first-child)::before {
   content: ".";
   position: relative;
@@ -180,13 +175,6 @@ header .container {
   right: 44px;
   transform: rotate(-45deg);
   z-index: 3;
-}
-
-.arrow:hover {
-  border: solid #ffffff;
-  border-width: 0 5px 5px 0;
-  cursor: pointer;
-  opacity: 0.5;
 }
 
 .phone-vertical {
@@ -423,12 +411,6 @@ header .container {
 .portfolio-nav-element__selected {
   color: #dedede;
   border: 1px solid #dedede;
-}
-
-.portfolio-nav-element:hover {
-  color: lightblue;
-  border: 1px solid lightblue;
-  cursor: pointer;
 }
 
 .portfolio-grid {
@@ -699,13 +681,6 @@ header .container {
   text-transform: uppercase;
 }
 
-.quote-form-btn:hover{
-  color: #d6564f;
-  background-color: #f0d8d9;
-  border: 1px solid #d6564f;
-  cursor: pointer;
-}
-
 .quote-information {
   width: 34%;
   padding-left: 20px;
@@ -795,9 +770,7 @@ footer .container {
   margin-left: 4px;  
 }
 
-.footer-nav a:hover {
-  cursor: pointer;
-}
+
 
 /* styles for ie */
 
@@ -1397,5 +1370,40 @@ footer .container {
 
   .footer-copyright {
     display: none;
+  }
+}
+
+@media(hover: hover) {
+  .header-menu .header-menu-item  a:hover {
+    color: #f06c64;
+    cursor: pointer;
+  }
+
+  .arrow:hover {
+    border: solid #ffffff;
+    border-width: 0 5px 5px 0;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  .portfolio-nav-element:hover {
+    color: lightblue;
+    border: 1px solid lightblue;
+    cursor: pointer;
+  }
+
+  .about-profile-item-social:hover{
+    cursor: pointer;
+  }
+
+  .quote-form-btn:hover{
+    color: #d6564f;
+    background-color: #f0d8d9;
+    border: 1px solid #d6564f;
+    cursor: pointer;
+  }
+
+  .footer-nav a:hover {
+    cursor: pointer;
   }
 }
