@@ -2,12 +2,12 @@ const headerMenu = document.querySelector('.header-menu');
 const headerMenuItems = headerMenu.querySelectorAll('.header-menu-item')
 const sections = document.querySelectorAll('main > section')
 const headerMenuBtn = document.querySelector('.header-menu-icon-btn')
+const headerLogo = document.querySelector('.header-logo')
+const shadowBackground = document.querySelector('.shadow-background')
 
 
 const adaptiveMenu = () => {
-  const headerLogo = document.querySelector('.header-logo')
-  const shadowBackground = document.querySelector('.shadow-background')
-  if(!headerMenu.classList.contains('active')){
+  if(!headerMenu.classList.contains('header-menu-active')){
     headerMenu.classList.toggle('header-menu-active')
     headerMenuBtn.classList.toggle('btn-rotate')
     headerLogo.classList.toggle('header-logo-position')
@@ -15,6 +15,7 @@ const adaptiveMenu = () => {
   } else {
     headerMenu.classList.toggle('header-menu-active')
     headerMenuBtn.classList.toggle('btn-rotate')
+    headerLogo.classList.toggle('header-logo-position')
     shadowBackground.classList.toggle('shadow-background-active')
   }
 }
@@ -29,6 +30,14 @@ const selectMenuItem = (event) => {
       }
     })
     event.target.parentElement.classList.add('header-menu-link__selected')
+    
+    // close adaptive menu
+    if(headerMenu.classList.contains('header-menu-active')){
+      headerMenu.classList.toggle('header-menu-active')
+      headerMenuBtn.classList.toggle('btn-rotate')
+      headerLogo.classList.toggle('header-logo-position')
+      shadowBackground.classList.toggle('shadow-background-active')
+    } 
   } 
 }
 
@@ -151,14 +160,13 @@ const portfolioGrid = document.querySelector('.portfolio-grid');
 const random = (arr) => {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-      
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
+
   return arr;
 }
 
 const filterItems = (event) => {
-  let tempArr = []
 
   //change navbar
   if(event.target.tagName === 'SPAN') {
@@ -168,41 +176,9 @@ const filterItems = (event) => {
       }
     })
     event.target.classList.add('portfolio-nav-element__selected')
-  
-    // filter items
-    if(event.target.textContent === 'Artwork'){
-      for(let i = 0; i < portfolioItems.length; i++){
-        if(portfolioItems[i].classList.contains('artwork')){
-          tempArr.push(portfolioItems[i])
-        }
-      }
-    } 
-    
-    if (event.target.textContent === 'Graphic Design') {
-      for(let i = 0; i < portfolioItems.length; i++){
-        if(portfolioItems[i].classList.contains('graphic-design')){
-          tempArr.push(portfolioItems[i])
-        }
-      }
-    }
-    
-    if (event.target.textContent === 'Web Design') {
-      for(let i = 0; i < portfolioItems.length; i++){
-        if(portfolioItems[i].classList.contains('web-design')){
-          tempArr.push(portfolioItems[i])
-        }
-      }
-    }
 
-    if(event.target.textContent === 'All') {
-      for(let i = 0; i < portfolioItems.length; i++){
-        tempArr.push(portfolioItems[i])
-      }
-    }
-    
     portfolioGrid.innerHTML = ""
-    tempArr = random(tempArr)
-    tempArr.forEach((el) => {
+    random(Array.from(portfolioItems)).forEach((el) => {
       return portfolioGrid.append(el)
     })
   }
