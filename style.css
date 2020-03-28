@@ -52,10 +52,6 @@ header .container {
   margin-right: 28px; 
 }
 
-.header-menu:nth-child(2) {
-  margin-right: 29px;
-}
-
 .header-menu-item a { 
   font-size: 12px;
   line-height: 36px;
@@ -83,8 +79,11 @@ header .container {
   margin-right: 0px;
 }
 
-.header-menu-icon-btn{
+.header-menu-icon {
   display: none;
+}
+
+.header-menu-icon-btn{
   background: transparent;
   outline: none;
   border: none;
@@ -1013,7 +1012,7 @@ footer .container {
     display: block;
   }
 
-  .header-menu-icon-btn{
+  .header-menu-icon {
     display: block;
   }
   
@@ -1299,7 +1298,7 @@ footer .container {
     display: block;
   }
 
-  .header-menu-icon-btn{
+  .header-menu-icon {
     display: block;
   }
   
