@@ -131,7 +131,7 @@ const phoneCentralBackground = document.querySelector('.phone-background-central
 
 const offPhone = (event) => {
   if(event.target.classList.contains('phone-vertical')){
-    if(event.layerX > 85  && event.layerX < 125 && event.layerY > 408 && event.layerY < 448){
+    if(event.layerX > 85  && event.layerX < 129 && event.layerY > 408 && event.layerY < 451){
       phoneVerticalBackground.classList.toggle('phone-background-vertical-active')
     }
   }
@@ -141,7 +141,7 @@ const offPhone = (event) => {
     }
   }
   if(event.target.classList.contains('phone-central')){
-    if(event.layerX > 474 && event.layerX < 520 && event.layerY > 474 && event.layerY < 512){
+    if(event.layerX > 474 && event.layerX < 520 && event.layerY > 474 && event.layerY < 519){
       phoneCentralBackground.classList.toggle('phone-background-central-active')
     }
   }
