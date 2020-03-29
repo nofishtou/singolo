@@ -1044,6 +1044,14 @@ footer .container {
   }
 
   /* slider */
+
+  .home-bg-red {
+    border-bottom: 2px solid #ea676b;
+  }
+
+  .home-bg-blue {
+    border-bottom: 2px solid #648BF0;
+  }
   
   .slider {
     margin: 0 auto;
@@ -1324,6 +1332,13 @@ footer .container {
   }
 
   /* slider */
+  .home-bg-red {
+    border-bottom: 2px solid #ea676b;
+  }
+
+  .home-bg-blue {
+    border-bottom: 2px solid #648BF0;
+  }
   
   .slider {
     margin: 0 auto;
