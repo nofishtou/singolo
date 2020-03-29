@@ -43,9 +43,10 @@ const selectMenuItem = (event) => {
 
 const onScroll = () => {
   const curPos = window.scrollY;
+  const header = document.querySelector('header');
 
   sections.forEach((section) => {
-    if(section.offsetTop - 95 <= curPos && (section.offsetTop + section.offsetHeight - 95) > curPos) {
+    if(section.offsetTop - header.offsetHeight <= curPos && (section.offsetTop + section.offsetHeight - header.offsetHeight) > curPos) {
       headerMenuItems.forEach((headerMenuItem) => {
         headerMenuItem.classList.remove('header-menu-link__selected')
         if(section.getAttribute('id') === headerMenuItem.childNodes[0].getAttribute('href').substring(1)){
@@ -130,17 +131,17 @@ const phoneCentralBackground = document.querySelector('.phone-background-central
 
 const offPhone = (event) => {
   if(event.target.classList.contains('phone-vertical')){
-    if(event.layerX > 98  && event.layerX < 116 && event.layerY > 422 && event.layerY < 436){
+    if(event.layerX > 85  && event.layerX < 125 && event.layerY > 408 && event.layerY < 448){
       phoneVerticalBackground.classList.toggle('phone-background-vertical-active')
     }
   }
   if(event.target.classList.contains('phone-horizontal')){
-    if(event.layerX > 20 && event.layerX < 38 && event.layerY > 98 && event.layerY < 117){
+    if(event.layerX > 7 && event.layerX < 50 && event.layerY > 85 && event.layerY < 129){
       phoneHorizontalBackground.classList.toggle('phone-background-horizontal-active')
     }
   }
   if(event.target.classList.contains('phone-central')){
-    if(event.layerX > 488 && event.layerX < 506 && event.layerY > 484 && event.layerY < 504){
+    if(event.layerX > 474 && event.layerX < 520 && event.layerY > 474 && event.layerY < 512){
       phoneCentralBackground.classList.toggle('phone-background-central-active')
     }
   }
