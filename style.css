@@ -6,6 +6,7 @@
 
 html, body {
   scroll-behavior: smooth;
+  scroll-padding-top: 94px;
 }
 
 .container {
@@ -953,6 +954,10 @@ footer .container {
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
+  html, body {
+    scroll-padding-top: 70px;
+  }
+
   .container {
     min-width: 375px;
   }
@@ -1241,6 +1246,10 @@ footer .container {
 }
 
 @media (min-width: 320px) and (max-width: 374px) {
+  html, body {
+    scroll-padding-top: 70px;
+  }
+
   .container {
     min-width: 320px;
   }
