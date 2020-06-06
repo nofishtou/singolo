@@ -167,6 +167,10 @@ header .container {
   left: 45px;
   transform: rotate(135deg);
   z-index: 3;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
 }
 
 .arrow-right {
@@ -175,6 +179,10 @@ header .container {
   right: 44px;
   transform: rotate(-45deg);
   z-index: 3;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
 }
 
 .phone-vertical {
@@ -769,8 +777,6 @@ footer .container {
 .footer-nav a + a {
   margin-left: 4px;  
 }
-
-
 
 /* styles for ie */
 
